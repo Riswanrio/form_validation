@@ -28,7 +28,7 @@ class HomeController extends Controller
          $this->validate(request(), [
              'name' => 'required|regex:/^[A-Z]+$/i',
              'gender' => 'required',
-             'phone' => 'required|numeric|max:10',
+             'phone' => 'required|numeric|digits:10',
              'bday' => 'required',
              'email' => 'required|email|unique:users,email',
              'password' => 'required|min:4|max:10|'
