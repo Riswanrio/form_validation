@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </head>
 <body>
 
@@ -22,14 +23,20 @@
   
         <h1>Simple Form By Riswan</h1>
         <hr>
-        @if(Session::has('success'))
-        <div class="alert alert-success">
-            {{ Session::get('success') }}
-            @php
-                Session::forget('success');
-            @endphp
-        </div>
-        @endif
+        @if(session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}",
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+                timer:5000
+            });
+        });
+    </script>
+@endif
    
         <form method="POST" action="{{ url('user/create') }}">
   
@@ -100,6 +107,7 @@
                 <button class="btn">Submit</button>
        
         </form>
+
     </div>
 </body>
 <style>

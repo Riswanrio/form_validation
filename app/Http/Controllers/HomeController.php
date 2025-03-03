@@ -43,6 +43,7 @@ class HomeController extends Controller
          $user->email = request('email');
          $user->password = request('password');
          $user->save();
-        return back()->with('success', 'User created successfully.');
+  //      return back()->with('success', 'User created successfully.');
+  return redirect()->back()->with('success', 'User Created successfully');
     }
 }
